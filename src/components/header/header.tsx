@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useRef } from 'react';
 import { Todo } from '../../types/Todo';
 import classNames from 'classnames';
+import { ErrorMessages } from '../../types/ErrorMessages'; // Import the ErrorMessages enum
 
 type Props = {
   todo: Omit<Todo, 'id'>;
@@ -41,7 +42,7 @@ export const Header: React.FC<Props> = ({
     event.preventDefault();
 
     if (!todo.title.trim()) {
-      onError('Title should not be empty');
+      onError(ErrorMessages.EmptyTitle);
 
       return;
     }
@@ -54,7 +55,6 @@ export const Header: React.FC<Props> = ({
 
   return (
     <header className="todoapp__header">
-      {/* this button should have `active` class only if all todos are completed */}
       {todosFromServer.length > 0 && (
         <button
           type="button"
@@ -66,7 +66,6 @@ export const Header: React.FC<Props> = ({
         />
       )}
 
-      {/* Add a todo on form submit */}
       <form onSubmit={handleSubmit}>
         <input
           value={todo.title}

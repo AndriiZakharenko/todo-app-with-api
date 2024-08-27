@@ -38,7 +38,7 @@ export const ToDo: React.FC<Props> = ({
     onError('');
     onIdTodo(id);
 
-    if (updateTodo === null) {
+    if (!updateTodo) {
       setIsSubmitting(false);
 
       return;
@@ -117,7 +117,7 @@ export const ToDo: React.FC<Props> = ({
   const handleChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     if (updateTodo) {
       setUpdateTodo(currentTodo => {
-        if (currentTodo === null) {
+        if (!currentTodo) {
           return null;
         }
 

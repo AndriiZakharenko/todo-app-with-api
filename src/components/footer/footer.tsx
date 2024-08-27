@@ -23,14 +23,14 @@ export const Footer: React.FC<Props> = ({
         {leftItems + ' items left'}
       </span>
 
-      {/* Active link should have the 'selected' class */}
       <nav className="filter" data-cy="Filter">
         {Object.values(Status).map(link => (
           <a
             key={link}
             href={`#/${link}`}
             className={classNames('filter__link', {
-              selected: status === link || (link === 'All' && status === ''),
+              selected:
+                status === link || (link === Status.All && status === ''),
             })}
             data-cy={`FilterLink${link}`}
             onClick={() => onClick(link)}
@@ -40,12 +40,11 @@ export const Footer: React.FC<Props> = ({
         ))}
       </nav>
 
-      {/* this button should be disabled if there are no completed todos */}
       <button
         type="button"
         className="todoapp__clear-completed"
         data-cy="ClearCompletedButton"
-        disabled={completedItems.length > 0 ? false : true}
+        disabled={!completedItems.length}
         onClick={onDelete}
       >
         Clear completed

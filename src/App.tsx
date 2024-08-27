@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { UserWarning } from './UserWarning';
 import * as postService from './api/todos';
@@ -9,6 +7,7 @@ import { ToDoList } from './components/todoList/todoList';
 import { Header } from './components/header/header';
 import { Todo } from './types/Todo';
 import { Status } from './types/status';
+import { ErrorMessages } from './types/ErrorMessages';
 
 export const App: React.FC = () => {
   const [todosFromServer, setTodosFromServer] = useState<Todo[]>([]);
@@ -34,7 +33,7 @@ export const App: React.FC = () => {
         setTodosFromServer(todosArr);
         setTodos(todosArr);
       })
-      .catch(() => setErrorMessage('Unable to load todos'))
+      .catch(() => setErrorMessage(ErrorMessages.UnableToLoadTodos))
       .finally(() => {
         setTimeout(() => {
           setErrorMessage('');
@@ -70,7 +69,7 @@ export const App: React.FC = () => {
       })
       .catch(error => {
         setTodosFromServer(todos);
-        setErrorMessage('Unable to delete a todo');
+        setErrorMessage(ErrorMessages.UnableToDeleteTodo);
         throw error;
       });
   }
@@ -92,7 +91,7 @@ export const App: React.FC = () => {
         setTodosFromServer(currentTodos => [...currentTodos, todo]);
       })
       .catch(error => {
-        setErrorMessage('Unable to add a todo');
+        setErrorMessage(ErrorMessages.UnableToAddTodo);
         setTodosFromServer(todos);
         throw error;
       });
@@ -115,7 +114,7 @@ export const App: React.FC = () => {
         });
       })
       .catch(error => {
-        setErrorMessage('Unable to update a todo');
+        setErrorMessage(ErrorMessages.UnableToUpdateTodo);
         setTodosFromServer(todos);
         throw error;
       });
@@ -146,7 +145,7 @@ export const App: React.FC = () => {
           });
         })
         .catch(() => {
-          setErrorMessage('Unable to delete a todo');
+          setErrorMessage(ErrorMessages.UnableToDeleteTodo);
         });
     });
   }
