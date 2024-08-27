@@ -33,13 +33,18 @@ export const App: React.FC = () => {
         setTodosFromServer(todosArr);
         setTodos(todosArr);
       })
-      .catch(() => setErrorMessage(ErrorMessages.UnableToLoadTodos))
-      .finally(() => {
-        setTimeout(() => {
-          setErrorMessage('');
-        }, 3000);
-      });
+      .catch(() => setErrorMessage(ErrorMessages.UnableToLoadTodos));
   }, []);
+
+  useEffect(() => {
+    if (errorMessage) {
+      const timer = setTimeout(() => {
+        setErrorMessage('');
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage]);
 
   const filterTodos = useCallback(() => {
     switch (status) {
