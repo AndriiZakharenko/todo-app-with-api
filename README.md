@@ -2,15 +2,9 @@
 
 It is the third part of the React Todo App with API.
 
-Take your code implemented for [Add and Delete](https://github.com/mate-academy/react_todo-app-add-and-delete)
-and implement the ability to toggle and rename todos.
-
-> Here is [the working example](https://mate-academy.github.io/react_todo-app-with-api/)
-
 ## Toggling a todo status
 
 Toggle the `completed` status on `TodoStatus` change:
-- Install Prettier Extention and use this [VSCode settings](https://mate-academy.github.io/fe-program/tools/vscode/settings.json) to enable format on save.
 - covered the todo with a loader overlay while waiting for API response;
 - the status should be changed on success;
 - show the `Unable to update a todo` notification in case of API error.
@@ -24,7 +18,7 @@ Add the ability to toggle the completed status of all the todos with the `toggle
 
 ## Renaming a todo
 
-Implement the ability to edit a todo title on double click:
+Implemented the ability to edit a todo title on double click:
 
 - show the edit form instead of the title and remove button;
 - saves changes on the form submit (just press `Enter`);
@@ -37,14 +31,7 @@ Implement the ability to edit a todo title on double click:
 - show `Unable to update a todo` in case of API error;
 - or the deletion error message if we tried to delete the todo.
 
-## If you want to enable tests
-- open `cypress/integration/page.spec.js`
-- replace `describe.skip` with `describe` for the root `describe`
 
-> ❗❗All tests should pass, even if some behaviour in not well explained in the task❗❗
+## Demo Links
 
-## Instructions
-
-- Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).
-- Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_todo-app-with-api/) and add it to the PR description.
+- [DEMO LINK](https://AndriiZakharenko.github.io/react_todo-app-with-api/)
