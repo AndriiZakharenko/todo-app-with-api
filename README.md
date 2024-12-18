@@ -7,7 +7,7 @@ The task consists of 3 part:
 - [Add and Delete](https://github.com/AndriiZakharenko/todo-app-add-and-delete)
 - [Toggle and Rename](https://github.com/AndriiZakharenko/todo-app-with-api)
 
-In this 1st part:
+In this 3st part:
 
 - implemented todos toggling status and renaming TODOs using external API
 
